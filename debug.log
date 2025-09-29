@@ -2280,3 +2280,32 @@
 [27-Sep-2025 21:06:11 UTC] Open Nodes: 47
 [27-Sep-2025 21:06:11 UTC] Open Nodes: 49
 [27-Sep-2025 21:06:11 UTC] Open Nodes: 50
+[29-Sep-2025 17:07:35 UTC] PHP Warning:  Undefined variable $idCounter in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\index.php on line 53
+[29-Sep-2025 17:07:35 UTC] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property PuzzleResolver\Node::$id of type int in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\index.php:53
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\index.php on line 53
+[29-Sep-2025 17:12:03 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:12:03 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:13:00 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:13:00 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:13:24 UTC] PHP Parse error:  syntax error, unexpected variable "$node", expecting "," or ";" in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 16
+[29-Sep-2025 17:13:37 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:13:37 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:13:59 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:13:59 UTC] PHP Fatal error:  Uncaught Error: Object of class PuzzleResolver\Node could not be converted to string in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php:14
+Stack trace:
+#0 C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php(19): printTree(Object(PuzzleResolver\Node), 1)
+#1 C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\index.php(60): printTree(Object(PuzzleResolver\Node), 0)
+#2 {main}
+  thrown in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:14:29 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:14:29 UTC] PHP Fatal error:  Uncaught Error: Object of class PuzzleResolver\Node could not be converted to string in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php:14
+Stack trace:
+#0 C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php(19): printTree(Object(PuzzleResolver\Node), 1)
+#1 C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\index.php(60): printTree(Object(PuzzleResolver\Node), 0)
+#2 {main}
+  thrown in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:15:25 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:15:25 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
+[29-Sep-2025 17:17:29 UTC] PHP Warning:  Attempt to read property "id" on null in C:\Users\Lucas\Faculdade\Inteligencia_artifical\PuzzleResolver\helpers.php on line 14
