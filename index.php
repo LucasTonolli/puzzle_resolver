@@ -30,6 +30,7 @@ $goalState = [
     [9, 10, 11, 12],
     [13, 14, 15, 0]
 ];
+
 $puzzle = new Puzzle($initialState);
 
 echo "<h1>Estado inicial:</h1>\n";
