@@ -14,9 +14,8 @@ require_once "BetterChoiceSearch.php";
 
 use PuzzleResolver\BetterChoiceSearch;
 use PuzzleResolver\BreadthSearch;
-use PuzzleResolver\Node;
 use PuzzleResolver\Puzzle;
-use PuzzleResolver\Tree;
+
 
 $initialState = [
     [5, 1, 3, 4],
@@ -31,7 +30,6 @@ $goalState = [
     [9, 10, 11, 12],
     [13, 14, 15, 0]
 ];
-
 $puzzle = new Puzzle($initialState);
 
 echo "<h1>Estado inicial:</h1>\n";
@@ -39,26 +37,8 @@ echo "<pre>\n";
 $puzzle->printCurrentState();
 echo "</pre>\n\n\n";
 
-$node = new Node(null, $puzzle);
-$tree = new Tree($node);
-$idCounter = 1;
-for ($i = 1; $i <= 2; $i++) {
-    echo "<h1>Rodada $i:</h1>\n";
-    echo "<pre>\n";
-    foreach ($puzzle::MOVES as $move) {
-        try {
-            $newState = new Puzzle($tree->currentNode->puzzle->getState());
-            $newState->movePiece($move);
-            $node = new Node($tree->currentNode, $newState);
-            $node->id = $idCounter++;
-            $tree->insertNode($node);
-        } catch (Exception $e) {
-            echo $e->getMessage() . "\n";
-        }
-    }
-    printTree($tree->currentNode, 0);
+echo "<h1>Busca melhor escolha (A*):</h1>\n\n\n";
+BetterChoiceSearch::search($puzzle, $goalState);
 
-    $tree->setCurrentNode($tree->currentNode->children[0]);
-
-    echo "</pre>\n\n\n";
-}
+// echo "<h1>Busca em largura (BFS):</h1>\n\n\n";
+// BreadthSearch::search($puzzle, $goalState);

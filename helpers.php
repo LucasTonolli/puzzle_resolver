@@ -11,8 +11,8 @@ function printTree(Node $node, int $level = 0)
 {
   if ($node === null) return;
 
-  echo "Nodo {$node->id}\nNivel: $level\nNodo pai: " . $node->parent->id . "\n";
-  echo "\n";
+  echo "Nodo $node->id\nNivel: $level\n";
+
   $node->puzzle->printCurrentState();
   echo "\n";
   foreach ($node->children as $child) {
