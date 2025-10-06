@@ -21,7 +21,7 @@ $goalState = [
 
 # Testes
 
-| Gerado no Gemini Prop
+| Gerado no Gemini Pro
 
 ## Puzzle 3X3
 
