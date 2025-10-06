@@ -16,12 +16,11 @@ use PuzzleResolver\BetterChoiceSearch;
 use PuzzleResolver\BreadthSearch;
 use PuzzleResolver\Puzzle;
 
-
 $initialState = [
-    [5, 1, 3, 4],
-    [9, 0, 6, 8],
-    [13, 2, 7, 12],
-    [14, 10, 11, 15]
+    [1, 15, 3, 13],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [4, 14, 2, 0]
 ];
 
 $goalState = [
@@ -37,8 +36,11 @@ echo "<pre>\n";
 $puzzle->printCurrentState();
 echo "</pre>\n\n\n";
 
-echo "<h1>Busca melhor escolha (A*):</h1>\n\n\n";
-BetterChoiceSearch::search($puzzle, $goalState);
+echo "<h1>Busca melhor escolha (A*) - Manhattan Distance:</h1>\n\n\n";
+BetterChoiceSearch::search($puzzle, $goalState, "manhattan");
+
+// echo "<h1>Busca melhor escolha (A*) - Wrong pieces:</h1>\n\n\n";
+// BetterChoiceSearch::search($puzzle, $goalState, "wrongPieces");
 
 // echo "<h1>Busca em largura (BFS):</h1>\n\n\n";
 // BreadthSearch::search($puzzle, $goalState);

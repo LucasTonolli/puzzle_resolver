@@ -32,12 +32,26 @@ $goalState = [
 
 ## Puzzle 3X3
 
-### Wrong pieces: 4
+### Wrong pieces: 1
 
 $initialState = [
 [1, 2, 3],
-[5, 0, 6],
-[4, 7, 8]
+[4, 5, 0],
+[7, 8, 6]
+];
+
+$goalState = [
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 0]
+];
+
+### Wrong pieces: 6
+
+$initialState = [
+[4, 1, 3],
+[7, 2, 5],
+[0, 8, 6]
 ];
 
 $goalState = [
@@ -48,13 +62,13 @@ $goalState = [
 
 ## Puzzle 4X4
 
-### Wrong pieces: 15
+### Wrong pieces: 4
 
 $initialState = [
-[1, 6, 2, 4],
-[9, 5, 3, 8],
-[0, 10, 7, 11],
-[13, 14, 15, 12]
+[1, 0, 3, 4],
+[5, 6, 7, 8],
+[9, 10, 11, 12],
+[13, 15, 2, 14]
 ];
 
 $goalState = [
@@ -64,13 +78,13 @@ $goalState = [
 [13, 14, 15, 0]
 ];
 
-### Wrong pieces: 12 - but closer
+### Wrong Pieces: 8
 
 $initialState = [
-[2, 1, 4, 3],
-[5, 6, 0, 7],
-[10, 9, 12, 8],
-[13, 14, 15, 11]
+[1, 2, 7, 3],
+[5, 6, 11, 4],
+[0, 9, 10, 8],
+[13, 14, 15, 12]
 ];
 
 $goalState = [

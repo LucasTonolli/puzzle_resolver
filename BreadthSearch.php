@@ -80,14 +80,6 @@ class BreadthSearch
         }
       }
       $closedNodes[] = $tree->currentNode;
-      // echo "<pre>";
-      // echo "**** OPEN NODES ****\n";
-      // echo print_r(array_map(fn($node) => $node->id, $openNodes), true);
-      // echo "Quantidade de nós abertos: " . count($openNodes) . "\n";
-      // echo "**** CLOSED NODES ****\n";
-      // echo print_r(array_map(fn($node) => $node->id, ($closedNodes)), true);
-      // echo "Quantidade de nós fechados: " . count($closedNodes) . "\n";
-      // echo "</pre>";
     }
 
     $endTime = microtime(true);

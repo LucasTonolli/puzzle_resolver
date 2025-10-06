@@ -6,7 +6,7 @@ use Exception;
 
 class BetterChoiceSearch
 {
-  public static function search(Puzzle $puzzle, array $goalState): void
+  public static function search(Puzzle $puzzle, array $goalState, string $heuristic = "manhattan"): void
   {
     $startTime = microtime(true);
     $startMemory = memory_get_usage();
@@ -22,7 +22,6 @@ class BetterChoiceSearch
 
 
     while (!empty($openNodes) && !$goalAchieved) {
-      error_log("Open Nodes: " . count($openNodes));
       $tree->setCurrentNode(array_shift($openNodes));
       if ($tree->currentNode->puzzle->getState() == $goalState) {
         $goalAchieved = true;
@@ -60,12 +59,12 @@ class BetterChoiceSearch
           if (!$alreadyInOpen && !$alreadyInClosed) {
 
 
-            $node->setHeuristicPoints(self::getHeuristicPoints($node->puzzle, $goalState, $tree->currentNode->depth));
+            $node->setHeuristicPoints(self::getHeuristicPoints($node->puzzle, $goalState, $tree->currentNode->depth, $heuristic));
             $tree->insertNode($node);
             $openNodes[] = $node;
           } else if ($alreadyInOpen) {
             $tree->insertNode($node);
-            $node->setHeuristicPoints(self::getHeuristicPoints($node->puzzle, $goalState, $tree->currentNode->depth));
+            $node->setHeuristicPoints(self::getHeuristicPoints($node->puzzle, $goalState, $tree->currentNode->depth, $heuristic));
 
             foreach ($openNodes as $index => $openNode) {
               if ($node->puzzle->getState() == $openNode->puzzle->getState()) {
@@ -78,7 +77,7 @@ class BetterChoiceSearch
             }
           } else if ($alreadyInClosed) {
 
-            $node->setHeuristicPoints(self::getHeuristicPoints($node->puzzle, $goalState, $tree->currentNode->depth));
+            $node->setHeuristicPoints(self::getHeuristicPoints($node->puzzle, $goalState, $tree->currentNode->depth, $heuristic));
             $tree->insertNode($node);
             foreach ($closedNodes as $index => $closedNode) {
 
@@ -116,24 +115,44 @@ class BetterChoiceSearch
     echo "</pre>";
   }
 
-  private static function getHeuristicPoints(Puzzle $puzzle, array $goalState, int $nodeDepth): int
+  private static function getHeuristicPoints(Puzzle $puzzle, array $goalState, int $nodeDepth, string $function): int
   {
-    $movesToGoal = 0;
+    $heuristicValue = 0;
     $currentState = $puzzle->getState();
-    for ($i = 0; $i < count($currentState); $i++) {
-      for ($j = 0; $j < count($currentState[$i]); $j++) {
-        if ($currentState[$i][$j] != $goalState[$i][$j]) {
-          $valuePositionInGoalState = self::findPosition($goalState, $currentState[$i][$j]);
-          $movesToGoal += self::getManhattanDistance($j, $i, $valuePositionInGoalState['column'], $valuePositionInGoalState['row']);
+
+    if ($function === "manhattan") {
+      $currentState = $puzzle->getState();
+      for ($i = 0; $i < count($currentState); $i++) {
+        for ($j = 0; $j < count($currentState[$i]); $j++) {
+          if ($currentState[$i][$j] != 0 && $currentState[$i][$j] != $goalState[$i][$j]) {
+            $valuePositionInGoalState = self::findPosition($goalState, $currentState[$i][$j]);
+            $heuristicValue += self::getManhattanDistance($j, $i, $valuePositionInGoalState['column'], $valuePositionInGoalState['row']);
+          }
         }
       }
+    } else { // 'pieces_in_wrong_position'
+      $heuristicValue = self::getPieceInWrongPosition($puzzle->getState(), $goalState);
     }
-    return $movesToGoal + $nodeDepth;
+    return $heuristicValue + $nodeDepth;
   }
 
   private static function getManhattanDistance(int $column1, int $row1, int $column2, int $row2): int
   {
     return abs($column2 - $column1) + abs($row2 - $row1);
+  }
+
+  private static function getPieceInWrongPosition(array $currentState, array $goalState): int
+  {
+    $wrongPosition = 0;
+    for ($i = 0; $i < count($currentState); $i++) {
+      for ($j = 0; $j < count($currentState[$i]); $j++) {
+        if ($currentState[$i][$j] != $goalState[$i][$j]) {
+          $wrongPosition++;
+        }
+      }
+    }
+
+    return $wrongPosition;
   }
 
   private static function findPosition(array $goalState, $value): array
