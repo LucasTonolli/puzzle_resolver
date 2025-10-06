@@ -1,3 +1,24 @@
+# Guide
+
+Este é um método rápido para visualizar seu projeto em um navegador, ideal para testes locais.
+
+### Passo 1: Verificar se o PHP está instalado
+
+Abra seu terminal (Prompt de Comando, PowerShell, etc.) e execute o seguinte comando:
+
+`php -v `
+
+### Passo 2: Inicar o servidor local
+
+1. Pelo terminal, navegue até a pasta onde está o repositório
+2. Execute o comando `php -S localhost:8080`
+
+### Passo 3: Verificar o resultado
+
+1.Abra qualquer navegador de internet (Chrome, Firefox, etc.).
+
+2.Acesse o seguinte endereço: http://localhost:8080
+
 ## Original
 
 ### Wrong pieces: 11
@@ -88,3 +109,11 @@ $goalState = [
 ];
 
 ---
+
+```
+
+```
+
+```
+
+```
