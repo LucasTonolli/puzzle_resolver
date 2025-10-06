@@ -121,7 +121,6 @@ class BetterChoiceSearch
     $currentState = $puzzle->getState();
 
     if ($function === "manhattan") {
-      $currentState = $puzzle->getState();
       for ($i = 0; $i < count($currentState); $i++) {
         for ($j = 0; $j < count($currentState[$i]); $j++) {
           if ($currentState[$i][$j] != 0 && $currentState[$i][$j] != $goalState[$i][$j]) {
@@ -130,8 +129,8 @@ class BetterChoiceSearch
           }
         }
       }
-    } else { // 'pieces_in_wrong_position'
-      $heuristicValue = self::getPieceInWrongPosition($puzzle->getState(), $goalState);
+    } else {
+      $heuristicValue = self::getPieceInWrongPosition($currentState, $goalState);
     }
     return $heuristicValue + $nodeDepth;
   }
