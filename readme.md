@@ -1,10 +1,3 @@
-# Tarefas
-
-[ ] - Checar com o professor se o "gerador" é basicamente o _Puzzle_
-[ X ] - Mover Lógica do index.php para classe de busca em amplitude
-
-- Removi o uso do $visited
-
 ## Original
 
 ### Wrong pieces: 11
